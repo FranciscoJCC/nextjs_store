@@ -1,9 +1,14 @@
-import styles from './page.module.css'
+import { Description } from "./components/home/Description"
+import { Hero } from "./components/home/Hero"
+import { MainProducts } from "./components/home/MainProducts"
+
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <h1>Hola mundo</h1>
+    <main>
+      <Hero />
+      <Description />
+      <MainProducts />
     </main>
   )
 }
