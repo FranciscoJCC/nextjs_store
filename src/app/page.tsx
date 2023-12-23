@@ -1,6 +1,6 @@
-import { Description } from "./components/home/Description"
-import { Hero } from "./components/home/Hero"
-import { MainProducts } from "./components/home/MainProducts"
+import { Description } from "app/components/home/Description"
+import { Hero } from "app/components/home/Hero"
+import { MainProducts } from "app/components/home/MainProducts"
 
 
 export default function Home() {
