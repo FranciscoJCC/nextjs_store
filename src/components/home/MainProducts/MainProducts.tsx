@@ -4,7 +4,7 @@ import { getProducts } from 'app/services/shopify'
 
 
 export const MainProducts = async () => {
-    
+
     const products = await getProducts()
 
     return (
