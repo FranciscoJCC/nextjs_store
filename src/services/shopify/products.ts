@@ -35,5 +35,29 @@ export const getProducts = async (id?: string): Promise<ProductType[]> => {
         return transformedProducts
     } catch (error) {
        console.log(error) 
-    }    
+    }   
+}
+
+//Consulta productos de una colección en especifico
+export const getMainProducts = async () => {
+    const response = await fetch(shopifyUrls.products.mainProducts, {
+        headers: new Headers({
+            'X-Shopify-Access-Token': env.SHOPIFY_TOKEN
+        }),
+        next: {
+            revalidate: 60
+        }
+    })
+
+    /* 
+    
+        cache: force-cache - Solo forzando a limpiar cache se reflejan cambios
+        cache: no- cache - No tiene caché
+        next: revalidate - Cada cierto tiempo pide actualizar la caché, en segundos
+
+    */
+
+    const { products } = await response.json()
+
+    return products
 }
