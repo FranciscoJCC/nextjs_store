@@ -1,18 +1,38 @@
 import { shopifyUrls } from "./urls"
 import { env } from "app/config/env"
 
-export const getProducts = async () => {
+export const getProducts = async (id?: string): Promise<ProductType[]> => {
     
     try {
-        const response = await fetch(shopifyUrls.products.all,{
+
+        //Verificamos si viene con searchparams
+        const apiUrl = id ? `${shopifyUrls.products.all}?ids=${id}` : shopifyUrls.products.all
+
+        const response = await fetch(apiUrl,{
             headers: new Headers({
                 'X-Shopify-Access-Token': env.SHOPIFY_TOKEN
             })
         })
-    
+
         const { products } = await response.json()
-    
-        return products
+
+        
+        //Transformamos la data para definir la estructura de los datos
+        const transformedProducts = products.map((product: any)=> {
+            return {
+                id: product.id,
+                gql_id: product.variants[0].id,
+                title: product.title,
+                description: product.body_html,
+                price: product.variants[0].price,
+                image: product.images[0].src,
+                quantity: product.variants[0].inventory_quantity,
+                handle: product.handle,
+                tags: product.tags 
+            }
+        })
+
+        return transformedProducts
     } catch (error) {
        console.log(error) 
     }    
