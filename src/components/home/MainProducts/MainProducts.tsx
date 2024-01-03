@@ -16,7 +16,7 @@ export const MainProducts = async () => {
                     return (
                         <article>
                             <p>{ product.title }</p>
-                            <Image src={imageSrc} fill alt={product.title} loading='eager'/>
+                            <Image src={imageSrc} fill sizes='500' alt={product.title} loading='eager'/>
                         </article>
                     )
                 })}
