@@ -2,7 +2,7 @@
 
 import { GraphQLClientSingleton } from "app/graphql"
 import { createUserMutation } from "app/graphql/mutations/createUserMutation"
-import { createAccessToken } from "app/utils/createAccessToken"
+import { createAccessToken } from "app/utils/auth/createAccessToken"
 import { redirect } from "next/navigation"
 
 export const handleCreateUser = async (formData : FormData) => {
