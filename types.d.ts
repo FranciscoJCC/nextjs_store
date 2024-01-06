@@ -13,3 +13,10 @@ type ProductType = {
     handle: string;
     tags: string;
 }
+
+type CartItem = {
+    id: string;
+    title: string;
+    price: number;
+    quantity: number;
+}
