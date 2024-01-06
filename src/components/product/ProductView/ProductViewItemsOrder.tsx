@@ -40,7 +40,7 @@ export const ProductViewITemsOrder = ({ maxQuantity, product} : ProductViewItems
             id: product.id,
             title: product.title,
             price: product.price,
-            quantity: product.quantity
+            quantity: counter
         })
     }
 
