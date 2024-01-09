@@ -36,11 +36,14 @@ export const ProductViewITemsOrder = ({ maxQuantity, product} : ProductViewItems
     //Funcion para agregar items al carrito
     const handleAddToCart = (event: SyntheticEvent) => {
         event.preventDefault();
+        
         addToCart({
             id: product.id,
             title: product.title,
             price: product.price,
-            quantity: counter
+            quantity: counter,
+            image: product.image,
+            merchandiseId: product.gql_id
         })
     }
 

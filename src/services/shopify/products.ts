@@ -21,7 +21,7 @@ export const getProducts = async (id?: string): Promise<ProductType[]> => {
         const transformedProducts = products.map((product: any)=> {
             return {
                 id: product.id,
-                gql_id: product.variants[0].id,
+                gql_id: product.variants[0].admin_graphql_api_id,
                 title: product.title,
                 description: product.body_html,
                 price: product.variants[0].price,
