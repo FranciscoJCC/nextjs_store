@@ -14,7 +14,7 @@ export const MainProducts = async () => {
                 {products?.map((product: ProductType) =>{
                     const imageSrc = product.image;
                     return (
-                        <article>
+                        <article key={product.id}>
                             <p>{ product.title }</p>
                             <Image src={imageSrc} fill sizes='500' alt={product.title} loading='eager'/>
                         </article>

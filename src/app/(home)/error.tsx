@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react";
+/* import { useEffect } from "react"; */
 
 interface ErrorProps {
     error: Error;
@@ -9,10 +9,10 @@ interface ErrorProps {
 
 export default function Error({error, reset}: ErrorProps){
 
-    useEffect(() => {
+    /* useEffect(() => {
         //Se recomienda utilizar un software de observabilidad para mandar los errores
         console.log(error)
-    }, [])
+    }, []) */
 
     return(
         <div style={{
