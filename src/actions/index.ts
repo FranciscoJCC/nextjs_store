@@ -21,8 +21,16 @@ export const handleCreateUser = async (formData : FormData) => {
     }
 
 
-    const { customerCreate } = await graphQLClient.request(createUserMutation, variables)
-    const { customerUserErrors, customer } = customerCreate
+    const { customerCreate }: {
+        customerCreate: {
+            customer: {
+                firstName: string,
+                email:string
+            }
+        }
+    } = await graphQLClient.request(createUserMutation, variables)
+
+    const { /* customerUserErrors, */ customer } = customerCreate
 
     /* console.log(data); */
     if(customer?.firstName){

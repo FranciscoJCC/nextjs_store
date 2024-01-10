@@ -11,7 +11,12 @@ export const valideteAccessToken = async () => {
         const accessToken = cookiesStore.get('accessToken')?.value;
         const graphQLClient = GraphQLClientSingleton.getInstance().getClient();
 
-        const { customer } = await graphQLClient.request(customerName, {
+        const { customer }: {
+            customer: {
+              firstName: string
+              email: string
+            }
+        } = await graphQLClient.request(customerName, {
             customerAccessToken: accessToken
         });
 

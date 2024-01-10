@@ -1,7 +1,7 @@
 import { shopifyUrls } from "./urls"
 import { env } from "app/config/env"
 
-export const getProducts = async (id?: string): Promise<ProductType[]> => {
+export const getProducts = async (id?: string) => {
     
     try {
 
